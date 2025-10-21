@@ -139,7 +139,7 @@ function analyzeSalesData(data, options) {
         [key, value] = sold;
         return { sku: key, quantity: value };
       })
-      .sort((a, b) => a.quantity - b.quantity)
+      .sort((a, b) => b.quantity - a.quantity)
       .slice(0, 10);
   });
   return sellerStats.map((seller) => ({
