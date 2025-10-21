@@ -8,7 +8,7 @@
 function calculateSimpleRevenue(purchase, products) {
   // @TODO: Расчет выручки от операции
   const { discount, sale_price, quantity } = purchase;
-  return (revenue = sale_price * quantity * (1 - purchase.discount / 100));
+  return (revenue = sale_price * quantity * (1 - discount / 100));
 }
 
 /**
@@ -125,7 +125,7 @@ function analyzeSalesData(data, options) {
       if (!seller.products_sold[item.sku]) {
         seller.products_sold[item.sku] = 0;
       }
-      seller.products_sold[item.sku] = item.quantity;
+      seller.products_sold[item.sku] += item.quantity;
       // По артикулу товара увеличить его проданное количество у продавца
     });
   });
